@@ -17,8 +17,16 @@ spec:
       containers:
         - name: calculadora-service
           image: jorgehrique/calculadora-service:0.0.1
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              cpu: 350m
+              memory: 120Mi
+            limits:
+              cpu: 700m
+              memory: 300Mi
           livenessProbe:
             httpGet:
               path: /actuator/health
