@@ -17,6 +17,7 @@ spec:
       containers:
         - name: calculadora-service
           image: jorgehrique/calculadora-service:0.0.1
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           livenessProbe:
