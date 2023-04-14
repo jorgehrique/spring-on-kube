@@ -20,8 +20,13 @@ public class CalculadoraRest {
 
     @GetMapping("/age")
     public IntegerResultDTO calculateAge(@RequestParam("birth") LocalDate birth){
-        var result =  calculadoraService.calculateAge(birth);
+        var result = calculadoraService.calculateAge(birth);
         return new IntegerResultDTO(result);
     }
 
+    @GetMapping("/sign")
+    public String calculateSign(@RequestParam("birth") LocalDate birth){
+        var result = calculadoraService.calculateSign(birth);
+        return result.orElse("Nenhum signo foi encontrado com essa data.");
+    }
 }
