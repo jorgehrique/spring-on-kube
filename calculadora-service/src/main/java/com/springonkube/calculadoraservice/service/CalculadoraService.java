@@ -3,6 +3,7 @@ package com.springonkube.calculadoraservice.service;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Optional;
 
 @Service
@@ -14,15 +15,19 @@ public class CalculadoraService {
         this.signService = signService;
     }
 
-    public Integer calculateAge(LocalDate birth) {
+    public Optional<Integer> calculateAge(LocalDate birth) {
         if(birth == null){
-            return 0;
+            return Optional.empty();
         }
 
-        return LocalDate.now().getYear() - birth.getYear();
+        return Optional.of(Period.between(birth, LocalDate.now()).getYears());
     }
 
     public Optional<String> calculateSign(LocalDate birth){
+        if(birth == null){
+            return Optional.empty();
+        }
+
         return signService.calculateSign(birth.getDayOfMonth(), birth.getMonthValue());
     }
 

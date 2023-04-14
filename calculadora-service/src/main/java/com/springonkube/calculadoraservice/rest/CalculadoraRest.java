@@ -19,9 +19,9 @@ public class CalculadoraRest {
     }
 
     @GetMapping("/age")
-    public IntegerResultDTO calculateAge(@RequestParam("birth") LocalDate birth){
+    public Integer calculateAge(@RequestParam("birth") LocalDate birth){
         var result = calculadoraService.calculateAge(birth);
-        return new IntegerResultDTO(result);
+        return result.orElse(0);
     }
 
     @GetMapping("/sign")
