@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta2
+kind: Config
+metadata:
+  name: spring-on-kube
+build:
+  artifacts:
+  - image: jorgehrique/sok-calculadora-service
+    context: calculadora-service
+    docker:
+      dockerfile: Dockerfile
+  - image: jorgehrique/sok-frase-service
+    context: frase-service
+    docker:
+      dockerfile: Dockerfile
+manifests:
+  rawYaml:
+  - calculadora-service/k8s/deployment.yaml
+  - calculadora-service/k8s/service.yaml
+  - frase-service/k8s/deployment.yaml
+  - frase-service/k8s/service.yaml

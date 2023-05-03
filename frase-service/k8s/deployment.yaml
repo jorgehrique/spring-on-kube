@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: calculadora-service
+  name: frase-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: calculadora-service
+      app: frase-service
   template:
     metadata:
       labels:
-        app: calculadora-service
+        app: frase-service
     spec:
       containers:
-        - name: calculadora-service
-          image: jorgehrique/sok-calculadora-service:latest
+        - name: frase-service
+          image: jorgehrique/sok-frase-service:latest
           ports:
             - containerPort: 8080
           resources:
