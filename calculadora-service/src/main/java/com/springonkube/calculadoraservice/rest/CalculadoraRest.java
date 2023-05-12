@@ -23,7 +23,7 @@ public class CalculadoraRest {
     }
 
     @GetMapping("/age")
-    public ResponseEntity<AgeDTO> calculateAge(@RequestParam("birth") LocalDate birth){
+    public ResponseEntity<AgeDTO> calculateAge(@RequestParam LocalDate birth){
         Optional<Integer> age = calculadoraService.calculateAge(birth);
 
         if (age.isPresent()){

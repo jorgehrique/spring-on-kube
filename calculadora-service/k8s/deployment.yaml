@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: calculadora-service
-          image: jorgehrique/sok-calculadora-service:latest
+          image: jorgehrique/sok-calculadora-service:1.0.0
           ports:
             - containerPort: 8080
           resources:
