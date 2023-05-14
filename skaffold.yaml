@@ -18,3 +18,10 @@ manifests:
   - calculadora-service/k8s/service.yaml
   - frase-service/k8s/deployment.yaml
   - frase-service/k8s/service.yaml
+portForward:
+  - resourceType: service
+    resourceName: calculadora-service
+    port: 80
+  - resourceType: service
+    resourceName: frase-service
+    port: 80

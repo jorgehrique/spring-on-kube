@@ -18,10 +18,11 @@ public class FraseService {
 
     public String buildFraseWith(String nome, LocalDate nascimento) {
         AgeDTO age = calculadoraClient.calculateAge(nascimento);
+        AgeDTO daysAlive = calculadoraClient.calculateDaysAlive(nascimento);
         SignDTO sign = calculadoraClient.calculateSign(nascimento);
 
-        return "Olá %s, você tem %d anos de idade e é do signo de %s!"
-                .formatted(nome, age.getAge(), sign.getSign());
+        return "Olá %s, você tem %d anos de idade, está vivo por %d dias e é do signo de %s!"
+                .formatted(nome, age.getAge(), daysAlive.getAge(),  sign.getSign());
     }
 
 }

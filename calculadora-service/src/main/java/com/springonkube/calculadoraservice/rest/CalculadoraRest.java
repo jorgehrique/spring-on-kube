@@ -24,7 +24,20 @@ public class CalculadoraRest {
 
     @GetMapping("/age")
     public ResponseEntity<AgeDTO> calculateAge(@RequestParam LocalDate birth){
-        Optional<Integer> age = calculadoraService.calculateAge(birth);
+        Optional<Long> age = calculadoraService.calculateAge(birth);
+
+        if (age.isPresent()){
+            AgeDTO ageDTO = new AgeDTO();
+            ageDTO.setAge(age.get());
+            return ResponseEntity.ok(ageDTO);
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping("/days-alive")
+    public ResponseEntity<AgeDTO> calculateDaysAlive(@RequestParam LocalDate birth){
+        Optional<Long> age = calculadoraService.calculateDaysAlive(birth);
 
         if (age.isPresent()){
             AgeDTO ageDTO = new AgeDTO();

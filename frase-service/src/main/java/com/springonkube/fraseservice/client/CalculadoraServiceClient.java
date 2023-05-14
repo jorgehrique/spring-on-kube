@@ -18,6 +18,9 @@ public interface CalculadoraServiceClient {
     @GetMapping(value = "/calculate/age")
     AgeDTO calculateAge(@RequestParam @DateTimeFormat(iso = ISO.DATE) LocalDate birth);
 
+    @GetMapping(value = "/calculate/days-alive")
+    AgeDTO calculateDaysAlive(@RequestParam @DateTimeFormat(iso = ISO.DATE) LocalDate birth);
+
     @GetMapping("/calculate/sign")
     SignDTO calculateSign(@RequestParam LocalDate birth);
 }

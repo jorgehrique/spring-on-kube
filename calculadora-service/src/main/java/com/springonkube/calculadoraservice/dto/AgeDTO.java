@@ -2,13 +2,13 @@ package com.springonkube.calculadoraservice.dto;
 
 public class AgeDTO {
 
-    private Integer age;
+    private Long age;
 
-    public Integer getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 }
